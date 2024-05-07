@@ -47,5 +47,6 @@ sql_ext_path = "None"
 NLTK_DATA ="./resources/nltk_data_dir/"
 TWILIO_ACCOUNT_SID = "OPTIONAL YOU CAN REMOVE"
 TWILIO_AUTH_TOKEN = "OPTIONAL YOU CAN REMOVE"
+AWS = ""
 ```
 
