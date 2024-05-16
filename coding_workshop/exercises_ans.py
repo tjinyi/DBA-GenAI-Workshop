@@ -602,7 +602,6 @@ def show_rag_results():
 		st.write("Source", source)
 
 #Challenge 7 - Integrate RAG into the chatbot, add the RAG search results function to the chatbot where the prompt is the user input
-
 def rag_results(prompt):
 	if st.session_state.vs:
 		docs = st.session_state.vs.similarity_search(prompt)
@@ -613,8 +612,6 @@ def rag_results(prompt):
 	else:
 		return "No results found"
 
-
-#Challenge 7 - Integrate RAG into the chatbot, add the RAG search results function to the chatbot where the prompt is the user input
 #Hint add the RAG search results function with the memory variable
 def basebot_prompt_design_memory_rag():
 	# Initialize chat history
@@ -690,7 +687,7 @@ def collect(username, chatbot_response, prompt):
 	tokens = len(chatbot_response + prompt) * 1.3
 	cursor.execute(
 		"""
-		INSERT INTO data_test_table (date, username,chatbot_ans, user_prompt, tokens)
+		INSERT INTO data_test_table (date, username, chatbot_ans, user_prompt, tokens)
 		VALUES (?, ?, ?, ?, ?)
 	""",
 		(now, username, chatbot_response, prompt, tokens),
@@ -704,14 +701,14 @@ def initialise():
 	# initialise database first
 	create_db()
 	# collect some data
-	collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
+	# collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
 	# display data
 	# Connect to the specified database
 	conn = sqlite3.connect(WORKING_DATABASE)
 	cursor = conn.cursor()
 
 	# Fetch all data from data_table
-	cursor.execute("SELECT * FROM data_table")
+	cursor.execute("SELECT * FROM data_test_table")
 	rows = cursor.fetchall()
 	column_names = [description[0] for description in cursor.description]
 	df = pd.DataFrame(rows, columns=column_names)
@@ -720,7 +717,7 @@ def initialise():
 
 
 
-#Challenge 9 - Collect your data from your chatbot
+#Exercise 9 - Collect your data from your chatbot
 #How to capture and save the data from the chatbot into the database
 def basebot_prompt_design_memory_rag_data():
 	# Initialize chat history

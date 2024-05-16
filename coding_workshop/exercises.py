@@ -636,8 +636,6 @@ def rag_results(prompt):
 	else:
 		return "No results found"
 
-
-#Challenge 7 - Integrate RAG into the chatbot, add the RAG search results function to the chatbot where the prompt is the user input
 #Hint add the RAG search results function with the memory variable
 def basebot_prompt_design_memory_rag():
 
@@ -673,7 +671,7 @@ def basebot_prompt_design_memory_rag():
 				# Call rag_results and pass the prompt variable into the function
 				rag = rag_results(prompt)
 				# add the rag variable after the memory context
-				for response in chat_completion_stream(st.session_state.prompt_template + memory_context , prompt):
+				for response in chat_completion_stream(st.session_state.prompt_template + memory_context, prompt):
 					full_response += (response.choices[0].delta.content or "")
 					message_placeholder.markdown(full_response + "▌")
 				message_placeholder.markdown(full_response)
@@ -720,7 +718,7 @@ def collect(username, chatbot_response, prompt):
 	tokens = len(chatbot_response + prompt) * 1.3
 	cursor.execute(
 		"""
-		INSERT INTO data_test_table (date, username,chatbot_ans, user_prompt, tokens)
+		INSERT INTO data_test_table (date, username, chatbot_ans, user_prompt, tokens)
 		VALUES (?, ?, ?, ?, ?)
 	""",
 		(now, username, chatbot_response, prompt, tokens),
@@ -734,14 +732,14 @@ def initialise():
 	# initialise database first
 	create_db()
 	# collect some data
-	collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
+	# collect("yoda", "I am Yoda. The Force is strong with you", "Who are you?")
 	# display data
 	# Connect to the specified database
 	conn = sqlite3.connect(WORKING_DATABASE)
 	cursor = conn.cursor()
 
 	# Fetch all data from data_table
-	cursor.execute("SELECT * FROM data_table")
+	cursor.execute("SELECT * FROM data_test_table")
 	rows = cursor.fetchall()
 	column_names = [description[0] for description in cursor.description]
 	df = pd.DataFrame(rows, columns=column_names)
@@ -750,7 +748,7 @@ def initialise():
 
 
 
-#Challenge 9 - Collect your data from your chatbot
+#Exercise 9 - Collect your data from your chatbot
 #How to capture and save the data from the chatbot into the database
 def basebot_prompt_design_memory_rag_data():
 
@@ -792,7 +790,7 @@ def basebot_prompt_design_memory_rag_data():
 				message_placeholder.markdown(full_response)
 				st.session_state.memory_variables.save_context({"input": prompt}, {"output": full_response})
 				# modify and add the code below by calling collect function
-				#insert here hint collect()
+				# insert here hint collect(username, chatbot_response, prompt)
 			st.session_state.chat_msg.append(
 				{"role": "assistant", "content": full_response}
 			)

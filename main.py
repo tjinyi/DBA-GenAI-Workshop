@@ -329,7 +329,7 @@ def main():
 							sac.MenuItem("6b. Chatbot with Memory", icon='filetype-py'),
 							sac.MenuItem("7a. RAG", icon='filetype-py'),
 							sac.MenuItem("7b. Chatbot with Memory & RAG", icon='filetype-py'),
-							sac.MenuItem("8a. Database", icon='filetype-py'),
+							sac.MenuItem("8. Database", icon='filetype-py'),
 							sac.MenuItem("9. Chatbot with Memory & RAG & recorded", icon='filetype-py'),
 						]),
 					]),
@@ -545,7 +545,7 @@ def main():
 			pass
 		elif st.session_state.option == '6b. Chatbot with Memory':
 			# call the openai basebot with memory function here
-			ex.prompt_design()
+			#ex.prompt_design()
 			ex.basebot_prompt_design_memory()
 			pass
 		elif st.session_state.option == '7a. RAG':
@@ -554,16 +554,16 @@ def main():
 			pass
 		elif st.session_state.option == '7b. Chatbot with Memory & RAG':
 			# call the openai basebot with memory and RAG function here
-			ex.prompt_design()
+			#ex.prompt_design()
 			ex.basebot_prompt_design_memory_rag()
 			pass
-		elif st.session_state.option == '8a. Database':
+		elif st.session_state.option == '8. Database':
 			# call the database function here
 			ex.initialise()
 			pass
 		elif st.session_state.option == '9. Chatbot with Memory & RAG & recorded':
 			# call the openai basebot with memory and RAG function and recorded data here
-			ex.prompt_design()
+			#ex.prompt_design()
 			ex.basebot_prompt_design_memory_rag_data()
 			pass
 
