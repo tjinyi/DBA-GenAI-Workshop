@@ -339,10 +339,10 @@ def main():
 						sac.MenuItem(return_function_name('KB management', 'Knowledge Base Editor'), icon='database-fill-up',disabled=is_function_disabled('KB management')),
 					]),
 
-					sac.MenuItem('GenAI Features & Apps', icon='book', children=[
-						sac.MenuItem(return_function_name('Image Generator','Image Analyser and Generator'), icon='camera', disabled=is_function_disabled('Image Generator')),
-						sac.MenuItem(return_function_name('Voice','Voice Analyser and Generator'), icon='mic',disabled=is_function_disabled('Voice')),
-					]),	
+					#sac.MenuItem('GenAI Features & Apps', icon='book', children=[
+					#	sac.MenuItem(return_function_name('Image Generator','Image Analyser and Generator'), icon='camera', disabled=is_function_disabled('Image Generator')),
+					#	sac.MenuItem(return_function_name('Voice','Voice Analyser and Generator'), icon='mic',disabled=is_function_disabled('Voice')),
+					#]),	
 
 					sac.MenuItem('Types of ChatBots', icon='person-fill-gear', children=[
 						#sac.MenuItem(return_function_name('Discussion Chatbot'), icon='people', disabled=is_function_disabled('Discussion Chatbot')),

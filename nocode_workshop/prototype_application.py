@@ -218,7 +218,7 @@ def prototype_settings():
 			st.session_state.prototype_model = "gpt-3.5-turbo"
 		
 		st.write("Current Model: ",st.session_state.prototype_model)
-		model_settings = st.selectbox("Select a model", ["gpt-3.5-turbo", "gpt-4-1106-preview", "cohere", "gemini-pro"])
+		model_settings = st.selectbox("Select a model", ["gpt-3.5-turbo", "gpt-4-turbo", "gpt-4o", "cohere", "gemini-pro"])
 		if st.button("Update Model"):
 			st.session_state.prototype_model = model_settings
 		chatbot_settings()
