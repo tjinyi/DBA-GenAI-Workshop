@@ -445,7 +445,7 @@ def main():
 		elif st.session_state.option == 'Python (Ex 0-9 & Ch 1-3)':
 			# Code for Starting Bot
 			st.subheader(f":green[{st.session_state.option}]")
-			st.session_state.chatbot = st.session_state.connecting_bot
+			#st.session_state.chatbot = st.session_state.connecting_bot
 			
 			python_ex = st.selectbox(
 				"Select the Python Exercise",
